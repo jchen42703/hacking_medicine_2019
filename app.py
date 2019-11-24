@@ -10,7 +10,7 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
-
+from gradcam import create_save_gradcam
 # Flask utils
 from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
@@ -62,6 +62,7 @@ def upload():
 
         # Make prediction
         preds = model_predict(file_path, model)
+        create_save_gradcam(file_path, model)
         # thresholding
         threshed = (preds > 0.5)*1
         # Process your result for human
@@ -70,6 +71,22 @@ def upload():
         return pred_class
     return None
 
+# @app.route('/gradcam', methods=['GET', 'POST'])
+# def upload():
+#     if request.method == 'POST':
+#         # Get the file from post request
+#         f = request.files['image']
+#
+#         # Save the file to ./uploads
+#         basepath = os.path.dirname(__file__)
+#         file_path = os.path.join(
+#             basepath, 'uploads', secure_filename(f.filename))
+#         f.save(file_path)
+#
+#         # Make prediction
+#         create_save_gradcam(file_path, model)
+#         return None
+#     return None
 
 if __name__ == '__main__':
     # app.run(port=5002, debug=True)
