@@ -3,9 +3,11 @@
 [![](https://img.shields.io/badge/python-2.7%2C%203.5%2B-green.svg)]()
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
-> A pretty and customizable web app to deploy your DL model with ease
+> Automatically classifying cancer in blood smear cells with Tensorflow and Keras.
 
-------------------
+* Credits to: https://github.com/mtobeiyf/keras-flask-deploy-webapp for the format for this app.
+* __Team Members:__ Abhi Bhattaru, Joseph Chen, John Harman, Andrew Hudak, Basia Johnson
+* Thanks to Raj and the other great mentors and pathologists at the 2019 MIT NYC Hacking Medicine event!
 
 ## Getting started in 10 minutes
 
@@ -15,10 +17,8 @@
 - Check http://localhost:5000
 - Done! :tada:
 
-:point_down:Screenshot:
-
 <p align="center">
-  <img src="https://s18.postimg.cc/l01x6fn3d/demo1.png" width="600px" alt="">
+  <img src="readme_imgs/hackathon_app_faster.gif" width="600px" alt="">
 </p>
 
 # How to Use
@@ -31,7 +31,7 @@ blast_cells
 non_malignant
   *.tiff
 ```
-The dataset is located [here](https://drive.google.com/open?id=1gxFw-Ddpi5DElvqUqM4QK5LOUVDSjSyN)
+The dataset is located [here](https://drive.google.com/open?id=1gxFw-Ddpi5DElvqUqM4QK5LOUVDSjSyN).
 
 ## Model Weights
 * Approach uses MobilNetv2. The weights are located [here](https://drive.google.com/drive/u/0/folders/1T0cExvtBBMoJRbbbxKtQzl0pSzQaVzDZ)
@@ -49,7 +49,7 @@ Then go to http://localhost:5000 and you should be good! Remember to restart the
 
 ### Clone the repo
 ```shell
-$ git clone https://github.com/mtobeiyf/keras-flask-deploy-webapp.git
+$ git clone https://github.com/jchen42703/hacking_medicine_2019.git
 ```
 
 ### Install requirements
@@ -59,7 +59,7 @@ $ pip install -r requirements.txt
 ```
 
 Make sure you have the following installed:
-- tensorflow
+- tensorflow (< 2.0)
 - keras
 - flask
 - pillow
@@ -73,15 +73,6 @@ Python 2.7 or 3.5+ are supported and tested.
 ```shell
 $ python app.py
 ```
-
-### Play
-
-Open http://localhost:5000 and have fun. :smiley:
-
-<p align="center">
-  <img src="https://s18.postimg.cc/5ekln1vvt/demo2.gif" width="600px" alt="">
-</p>
-
 ------------------
 
 ## Customization
@@ -138,9 +129,3 @@ server {
     }
 }
 ```
-
-## More resources
-
-Check Siraj's ["How to Deploy a Keras Model to Production"](https://youtu.be/f6Bf3gl4hWY) video. The corresponding [repo](https://github.com/llSourcell/how_to_deploy_a_keras_model_to_production).
-
-[Building a simple Keras + deep learning REST API](https://blog.keras.io/building-a-simple-keras-deep-learning-rest-api.html)
